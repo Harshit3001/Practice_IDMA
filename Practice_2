@@ -1,0 +1,189 @@
+### Write a program takes two values from the user and swaps them
+a. using temporary variable
+b. without using temporary variable
+
+
+a = int(input("Enter your value: "))
+b = int(input("Enter your value: "))
+def swap_fn(a,b):
+    c = a
+    a = b
+    b = c
+    print(a,b)
+
+swap_fn(a, b)
+
+a == b
+b == a
+a, b
+
+### Write a program that takes in two numbers and prints the quotient and remainder when one divides the other
+
+
+def divide_fn(D,d):
+    q = D//d
+    r = D-(q*d)
+    print("Quotient is: ", q)
+    print("Remainder is: ", r)
+divide_fn(int(input("Enter your value to divide: ")), int(input("Enter your value to divide by: ")))
+
+### Write a program to read a number n and calculate the sum of the series 1+2+…..+n
+
+def sum_fn(a,d,n): #a = first term, d = difference, n = number of terms
+    sum_n = (2*a + d*(n-1))*(n/2)
+    print(sum_n)
+sum_fn(1,2,10)
+
+### Write a program that takes in a number and prints if it is positive , negative or zero
+
+
+def type_n(n):
+    if n == 0:
+        print("Number is zero")
+    elif n < 0:
+        print("Number is negative")
+    elif n > 0:
+        print("Number is positive")
+type_n(float(input("Type a Number")))
+
+### Write a program that takes in marks of 5 subjects and prints the grade obtained for the student. (>85% ->A; 70% - 85% ->B; 55% -70% ->C; 40% - 55% ->D; <40% ->F)
+
+
+a = float(input("Marks in subject 1 "))
+b = float(input("Marks in subject 2 "))
+c = float(input("Marks in subject 3 "))
+d = float(input("Marks in subject 4 "))
+e = float(input("Marks in subject 5 "))
+def grade(a,b,c,d,e):
+    numbers = [a, b, c, d, e]
+    percentage = (float(sum(numbers))*100/500)
+    if percentage > 85:
+        print("Grade A")
+    elif percentage > 70 and percentage < 85:
+        print("Grade B")
+    elif percentage > 55 and percentage < 70:
+        print("Grade C")
+    elif percentage > 40 and percentage < 55:
+        print("Grade D")
+    else:
+        print("Grade F")
+
+grade(a,b,c,d,e)
+
+### Assume the new tax regime and no tax rebates, write a program that calculates the tax for a given salary
+
+
+def income_tax(a):
+    tax = 0
+    if int(a) < 250000:
+        tax = 0
+        print("No Tax")
+    elif int(a) > 250000 and int(a) < 500000:
+        tax = (int(a) - 250000)*0.05
+        print(tax)
+    elif int(a) > 500000 and int(a) < 750000:
+        tax = 250000*0.05 + (int(a) - 500000)*0.10
+        print(tax)
+    elif int(a) >750000 and int(a) < 1000000:
+        tax = 250000*0.05 + 250000*0.10 + (int(a) - 750000)*0.15
+        print(tax)
+    elif int(a) > 1000000 and int(a) < 1250000:
+        tax = 250000*0.05 + 250000*0.10 + 250000*0.15 + (int(a) - 1000000)*0.20
+        print(tax)
+    elif int(a) > 1250000 and int(a) < 1500000:
+        tax = 250000*0.05 + 250000*0.10 + 250000*0.15 + 250000*0.20 + (int(a) - 1250000)*0.25
+        print(tax)
+    elif int(a) >1500000:
+        tax = 250000*0.05 + 250000*0.10 + 250000*0.15 + 250000*0.20 + 250000*0.25 + (int(a) - 1500000)*0.30
+        print(tax)
+a = input("Your salary is: ")
+income_tax(a)
+
+###  Print the following numbers between 1 and 100
+a. Multiples of 7
+b. Multiples of 3 and 5
+c. Multiples of 3, 5 and 7
+d. Multiples of 3,5 and 7 but not divisible by 2
+
+def multiples(x,n):
+    for i in range(1,n):
+        if i%x == 0:
+            print(i)
+multiples(7,100)
+
+
+def multiples(x,y,n):
+    for i in range(1,n):
+        if i%x == 0:
+            print(i)
+        elif i%y == 0:
+            print(i)
+multiples(3,5,100)
+
+def multiples(x,y,z,n):
+    for i in range(1,n):
+        if i%x == 0:
+            print(i)
+        elif i%y == 0:
+            print(i)
+        elif i%z == 0:
+            print(i)
+multiples(3,5,7,100)
+
+def multiples(x,y,z,n):
+    for i in range(1,n):
+        if i%x == 0 and i%2 != 0:
+            print(i)
+        elif i%y == 0 and i%2 != 0:
+            print(i)
+        elif i%z == 0 and i%2 != 0:
+            print(i)
+multiples(3,5,7,100)
+
+### Take an input of a number from the user and print the sum of its digits
+
+
+def bijank(n):
+    sum = 0
+    for digit in str(n): 
+      sum += int(digit)
+    return sum
+   
+n = int(input("Enter your number: "))
+print(bijank(n))
+
+### Given a number, find the number of digits in it
+
+def num_digits(n):
+    num = [int(x) for x in str(n)]
+    return len(num)
+n = int(input("Enter your number: "))
+print(num_digits(n))
+
+### Take an input of a 3 digit number and print the largest number possible using the 3 digits
+
+
+def largest_num(n):
+    num = [int(x) for x in str(n)]
+    sort = sorted(num, reverse = True)
+    #changed_list = np.char.mod('%d', sort)
+    #final_ans = ''.join(changed_list )
+    final_ans = ''.join([str(x) for x in sort]) #>>> what is ' ' ?
+    return final_ans
+n = int(input("Enter your number: "))
+print(largest_num(n))
+    
+
+### Write a program that takes in a number and reverses it
+
+
+def reverse1(n):
+    num = [int(x) for x in str(n)]
+    num.reverse()
+    final_ans = ''.join([str(x) for x in num])
+    return final_ans
+n = int(input("Enter your number: "))
+print(reverse1(n))
+
+### Print an identity matrix of a given size nxn
+
